@@ -1,0 +1,27 @@
+<mujoco model="simple_pendulum">
+  <option timestep="0.01" integrator="RK4">
+    <flag energy="enable"/>
+  </option>
+
+  <default>
+    <geom rgba=".8 .6 .4 1"/>
+  </default>
+
+  <worldbody>
+    <light name="light" pos="0 0 6"/>
+    <camera name="fixed" pos="0 -3 1" zaxis="0 -1 0"/>
+    <camera name="track" mode="track" pos="0 -2 1"/>
+    
+    <geom name="floor" pos="0 0 -.5" size="2 2 .1" type="plane" rgba=".9 .9 .9 1"/>
+    
+    <body name="pole" pos="0 0 0">
+      <joint name="hinge" type="hinge" axis="0 1 0" damping="0.05"/>
+      <geom name="pole" type="capsule" fromto="0 0 0 0 0 1" size="0.045" mass="1.0" rgba=".8 .3 .3 1"/>
+      <geom name="tip" type="sphere" pos="0 0 1" size="0.1" mass="0.1" rgba=".3 .3 .8 1"/>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <motor name="torque" joint="hinge" gear="2" ctrllimited="true" ctrlrange="-5 5"/>
+  </actuator>
+</mujoco>
