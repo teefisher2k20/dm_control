@@ -250,3 +250,19 @@ class ReachTarget(composer.Task):
         target_pos_2d = self._target_pos[:2]  # Only X, Y
         distance = np.linalg.norm(walker_pos - target_pos_2d)
         return distance < 0.5
+
+
+def create_reach_target_env(time_limit=30, random_seed=None):
+    """Factory function to create a reach target environment.
+    
+    Args:
+        time_limit: Episode time limit in seconds
+        random_seed: Random seed for reproducibility
+        
+    Returns:
+        composer.Environment instance
+    """
+    walker = SimpleWalker()
+    arena = SimpleArena()
+    task = ReachTarget(walker=walker, arena=arena)
+    return composer.Environment(task=task, time_limit=time_limit, random_state=random_seed)

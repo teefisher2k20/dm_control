@@ -29,6 +29,11 @@ A simple pendulum swingup task following the monolithic Suite pattern.
 python demo_suite_pendulum.py
 ```
 
+**Visualize:**
+```bash
+python demo_with_viewer.py  # Select option 1
+```
+
 ### 2. Reach Target (Composer-Style)
 
 A modular environment where a 2D point mass must reach a randomly positioned target.
@@ -53,6 +58,11 @@ A modular environment where a 2D point mass must reach a randomly positioned tar
 **Run:**
 ```bash
 python demo_composer_reach.py
+```
+
+**Visualize:**
+```bash
+python demo_with_viewer.py  # Select option 2
 ```
 
 ## Key Patterns Demonstrated
@@ -84,6 +94,9 @@ pip install dm_control
 # Run demos from this directory
 python demo_suite_pendulum.py
 python demo_composer_reach.py
+
+# Visualize with interactive viewer (requires GLFW)
+python demo_with_viewer.py
 ```
 
 ## Architecture Insights
